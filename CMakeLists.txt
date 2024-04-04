@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
-project(battle-city)
+set(PROJECT_NAME battle-city)
+project(${PROJECT_NAME})
 
-add_executable(battle-city src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
+
+set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(external/glfw)
+target_link_libraries(${PROJECT_NAME} glfw)
